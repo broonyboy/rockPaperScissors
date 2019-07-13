@@ -2,15 +2,54 @@
 let computerSelection = "";
 
 function computerPlay() {
-randomNumber = Math.floor(Math.random() * 3) + 1;
-if (randomNumber == 1) {
-    computerSelection = "Rock";
-} else if (randomNumber == 2) {
-    computerSelection = "Paper";
-} else {
-    computerSelection = "Scissors";
-}
-return computerSelection;
+    randomNumber = Math.floor(Math.random() * 3) + 1;
+    if (randomNumber == 1) {
+        computerSelection = "rock";
+    } else if (randomNumber == 2) {
+        computerSelection = "paper";
+    } else {
+        computerSelection = "scissors";
+    }
+    console.log("Computer Selection : " + computerSelection);
+    return computerSelection;
 }
 
-computerPlay();
+function playerPlay() {
+    let playerSelection = prompt('Please make your selection (rock, paper or scissors');
+    playerSelection = playerSelection.toLowerCase();
+    if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
+        console.log("Invalid Choice - Try again");
+        playerSelection = "";
+        playerPlay();
+    }
+    console.log("Player Selection :" + playerSelection);
+    return playerSelection;
+}
+
+function singleRound(playerSelection, computerSelection) {
+
+    if (playerSelection == computerSelection) {
+        return "The result is a tie!";
+    } else if (playerSelection == "rock") {
+        if (computerSelection == "scissors") {
+            return "Rock wins";
+        } else {
+            return "Paper wins";
+        }
+    } else if (playerSelection == "paper") {
+        if (computerSelection == "rock") {
+            return "Paper wins";
+        } else {
+            return "Scissors wins";
+        }
+    } else if (playerSelection == "scissors") {
+        if (computerSelection == "paper") {
+            return "Scissors win";
+        } else {
+            return "Rock wins";
+        }
+    }
+}
+
+console.log(singleRound(playerPlay(), computerPlay()));
+
