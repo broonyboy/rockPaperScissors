@@ -32,21 +32,21 @@ function singleRound(playerSelection, computerSelection) {
         return "The result is a tie!";
     } else if (playerSelection == "rock") {
         if (computerSelection == "scissors") {
-            return "Rock wins";
+            return "You win ! Rock beats Scissors";
         } else {
-            return "Paper wins";
+            return "You Lose! Paper beats Rock.";
         }
     } else if (playerSelection == "paper") {
         if (computerSelection == "rock") {
-            return "Paper wins";
+            return "You Win! Paper beats Rock.";
         } else {
-            return "Scissors wins";
+            return "You Lose! Scissors beats Paper.";
         }
     } else if (playerSelection == "scissors") {
         if (computerSelection == "paper") {
-            return "Scissors win";
+            return "You Win! Scissors beats Paper.";
         } else {
-            return "Rock wins";
+            return "You Lose! Rock beats Scissors.";
         }
     }
 }
